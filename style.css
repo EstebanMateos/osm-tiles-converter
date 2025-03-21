@@ -37,9 +37,9 @@ h1 {
   margin-bottom: 5px;
 }
 
-/* Input groups */
 .input-container {
   display: flex;
+  flex-wrap: wrap; /* 🆕 permet le retour à la ligne */
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
@@ -53,7 +53,9 @@ h1 {
 input[type="number"],
 input[type="text"] {
   padding: 4px;
-  width: 120px;
+  width: 100px;
+  max-width: 100%;
+  flex-shrink: 0;
 }
 
 button {
