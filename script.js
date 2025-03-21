@@ -98,7 +98,7 @@ map.on('click', function(e) {
   // Create new popup
   tempPopup = L.popup()
                   .setLatLng(e.latlng)
-                  .setContent(`Lat: ${lat}<br>Lon: ${lon}`)
+                  .setContent(`latitude= ${lat}<br>longitude= ${lon}`)
                   .openOn(map);
 });
 
