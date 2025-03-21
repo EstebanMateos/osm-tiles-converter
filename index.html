@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tile Conversion & Display Tool</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Tile Conversion & Display Tool</h1>
+
+  <div class="features-container">
+    <!-- Bounding Box from Tile -->
+    <div class="feature">
+      <h2>Bounding Box</h2>
+      <div class="input-container">
+        <label for="x">X:</label>
+        <input type="number" id="x" value="6565">
+        <label for="y">Y:</label>
+        <input type="number" id="y" value="10872">
+        <label for="zoom">Zoom:</label>
+        <input type="number" id="zoom" value="14">
+      </div>
+      <button id="submit">Show Bounding Box</button>
+    </div>
+
+    <!-- Lat/Lon Conversion -->
+    <div class="feature">
+      <h2>Lat/Lon Conversion</h2>
+      <div class="input-container">
+        <label for="latInput">Lat:</label>
+        <input type="number" step="any" id="latInput" value="48.8588443">
+        <label for="lonInput">Lon:</label>
+        <input type="number" step="any" id="lonInput" value="2.2943506">
+        <label for="zoomInput">Zoom:</label>
+        <input type="number" id="zoomInput" value="14">
+      </div>
+      <div class="input-container">
+        <button id="convertLatLon">Convert to Tile</button>
+        <button id="showBBoxFromLatLon">Show BBox</button>
+      </div>
+      <div id="tileResult"></div>
+    </div>
+
+    <!-- City Search -->
+    <div class="feature">
+      <h2>Search City</h2>
+      <div class="input-container">
+        <label for="cityInput">City:</label>
+        <input type="text" id="cityInput" placeholder="e.g. Paris">
+        <button id="searchCity">Go</button>
+      </div>
+      <div id="citySearchResult"></div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
