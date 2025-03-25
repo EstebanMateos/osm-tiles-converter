@@ -4,10 +4,10 @@ html, body {
   width: 100%;
   box-sizing: border-box;
 }
-/* General page layout */
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+  font-family: Arial, sans-serif;
+  margin: 20px;
 }
 
 h1 {
@@ -15,63 +15,78 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Feature blocks layout */
+/* Layout container */
 .features-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
   margin-bottom: 10px;
+  max-width: 1600px;   
+  margin-left: auto;     
+  margin-right: auto;
 }
 
+/* Feature cards */
 .feature {
-  width: 24%;
-  min-width: 240px;
-  padding: 10px;
+  flex: 1 1 calc(25% - 12px);  /* 4 par ligne - 12px de gap */
+  min-width: 270px;
+  max-width: calc(25% - 12px);
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  background-color: #fafafa;
 }
 
 .feature h2 {
   font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.input-container {
-  display: flex;
-  flex-wrap: wrap; /* 🆕 permet le retour à la ligne */
-  align-items: center;
-  gap: 8px;
   margin-bottom: 8px;
 }
 
+/* Inputs layout */
+.input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 .input-container label {
-  width: auto;
-  min-width: 50px;
+  min-width: 60px;
 }
 
 input[type="number"],
 input[type="text"] {
-  padding: 4px;
+  padding: 5px;
   width: 100px;
-  max-width: 100%;
   flex-shrink: 0;
 }
 
 button {
-  padding: 4px 8px;
+  padding: 5px 10px;
   font-size: 0.9rem;
   cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #bbb;
+  border-radius: 4px;
 }
 
-/* Map area */
+button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Map container */
 #map {
   height: 70vh;
-  margin-top: 10px;
+  margin-top: 15px;
   border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-/* Results display */
+/* Info display */
 #tileResult,
 #citySearchResult {
   margin-top: 6px;
@@ -79,6 +94,22 @@ button {
   font-size: 0.9rem;
 }
 
+/* Global box-sizing */
 * {
   box-sizing: inherit;
+}
+
+/* Responsive rules */
+@media (max-width: 1000px) {
+  .feature {
+    flex: 1 1 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .feature {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
