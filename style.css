@@ -24,8 +24,8 @@ h1 {
 }
 
 .feature {
-  flex: 1;
-  min-width: 280px;
+  width: 24%;
+  min-width: 240px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 6px;
