@@ -185,3 +185,21 @@ document.getElementById('cityInput').addEventListener('keydown', (e) => {
     }
   });
 });
+
+document.getElementById('showManualBBox').addEventListener('click', () => {
+  const latMin = parseFloat(document.getElementById('latMin').value);
+  const latMax = parseFloat(document.getElementById('latMax').value);
+  const lonMin = parseFloat(document.getElementById('lonMin').value);
+  const lonMax = parseFloat(document.getElementById('lonMax').value);
+
+  if (isNaN(latMin) || isNaN(latMax) || isNaN(lonMin) || isNaN(lonMax)) {
+    alert('Please fill in all latitude and longitude fields.');
+    return;
+  }
+
+  const bounds = [[latMin, lonMin], [latMax, lonMax]];
+
+  if (rectangle) map.removeLayer(rectangle);
+  rectangle = L.rectangle(bounds, {color: '#00cc66', weight: 2}).addTo(map);
+  map.fitBounds(bounds);
+});
