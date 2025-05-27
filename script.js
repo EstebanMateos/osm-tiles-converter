@@ -246,3 +246,16 @@ map.on('move', () => {
     cityPopup = null;
   }
 });
+
+let latLonMarker = null;
+
+document.getElementById('showLatLonPoint').addEventListener('click', () => {
+  const lat = parseFloat(document.getElementById('latInput').value);
+  const lon = parseFloat(document.getElementById('lonInput').value);
+
+  if (isNaN(lat) || isNaN(lon)) return;
+
+  if (latLonMarker) map.removeLayer(latLonMarker);
+  latLonMarker = L.marker([lat, lon]).addTo(map).bindPopup(`Lat: ${lat.toFixed(6)}, Lon: ${lon.toFixed(6)}`).openPopup();
+  map.setView([lat, lon], map.getZoom());
+});
